@@ -1,0 +1,14 @@
+{
+  "explorer.confirmDelete": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "workbench.iconTheme": "vscode-icons",
+  "emmet.triggerExpansionOnTab": true,
+  "git.confirmSync": false,
+  "editor.wordWrap": "on",
+  "files.associations": {
+    "*.module": "php"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.formatOnSave": true
+}
