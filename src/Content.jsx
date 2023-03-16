@@ -66,13 +66,13 @@ const Content = () => {
     let monthly_ratio = values.monthly_ratio;
     let initial_value_yield = (initial_value * ((1 + (monthly_ratio / 100)) ** (monthly_time / 12)));
     let monthly_value_yield = 0;
-
+    
     let monthly_ratio_per_month = monthly_ratio / 12;
-
+    
     for (let line = 1; line < monthly_time; line++) {
       monthly_value_yield = (monthly_value_yield * (1 + (monthly_ratio_per_month / 100))) + monthly_value;
     }
-
+    
     let total_value_yield = monthly_value_yield + initial_value_yield;
     let interest_time = parseInt(values.interest_time);
     let interest_ratio = values.interest_ratio;
@@ -84,10 +84,14 @@ const Content = () => {
     let withdraw_yield = interest_yield;
     let withdraw_wage = 0;
     let total_withdraw_time = 0;
-    while (withdraw_yield > 0) {
-      withdraw_wage = (withdraw_yield * (wage_ratio / 100) * 0.85 / 12);
-      withdraw_yield = withdraw_yield - (withdraw - withdraw_wage);
-      total_withdraw_time++;
+    if(withdraw_yield > 0) {
+      while (withdraw_yield > 0) {
+        withdraw_wage = (withdraw_yield * (wage_ratio / 100) * 0.85 / 12);
+        withdraw_yield = withdraw_yield - (withdraw - withdraw_wage);
+        total_withdraw_time++;
+      }
+    } else {
+      total_withdraw_time = 900;
     }
     let withdraw_time = Math.round(total_withdraw_time/12);
     let total_time = (monthly_time / 12) + (interest_time / 12) + withdraw_time;
