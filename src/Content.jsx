@@ -84,7 +84,7 @@ const Content = () => {
     let withdraw_yield = interest_yield;
     let withdraw_wage = 0;
     let total_withdraw_time = 0;
-    if(withdraw_yield > 0) {
+    if(withdraw_yield > 0 && wage_yield < withdraw) {
       while (withdraw_yield > 0) {
         withdraw_wage = (withdraw_yield * (wage_ratio / 100) * 0.85 / 12);
         withdraw_yield = withdraw_yield - (withdraw - withdraw_wage);
